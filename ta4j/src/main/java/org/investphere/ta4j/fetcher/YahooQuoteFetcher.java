@@ -14,7 +14,7 @@ import eu.verdelhan.ta4j.TimeSeries;
 public class YahooQuoteFetcher extends QuoteFetcher {
 
     public TimeSeries fetchAndParseDaily(String symbol, int days) throws Exception {
-        return fetchAndParse(symbol, days, 60 * 60 * 24, new Period("1D"));
+        return fetchAndParse(symbol, days, 60 * 60 * 24, new Period().withDays(1));
     }
 
     public BigDecimal fetchBidAskSpread(String symbol) throws Exception {
@@ -27,8 +27,14 @@ public class YahooQuoteFetcher extends QuoteFetcher {
         return new BigDecimal(parts[0]).subtract(new BigDecimal(parts[1]));
     }
 
+    public String fetchQuotes(String symbol, int days, int interval) throws Exception {
+    	Period timePeriod = new Period().withDays(1);
+    	return this.fetchQuotes(symbol, days, interval, timePeriod);
+    }
+
     @Override
     public String fetchQuotes(String symbol, int days, int interval, Period timePeriod) throws Exception {
+    	
         String period;
 
         switch (interval) {

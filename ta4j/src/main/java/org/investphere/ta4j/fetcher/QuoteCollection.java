@@ -35,7 +35,7 @@ public class QuoteCollection {
         String symbolPath = properties.getProperty("symbolPath");
         int days = Integer.parseInt(properties.getProperty("days"));
         int interval = Integer.parseInt(properties.getProperty("interval"));
-        Period timePeriod = new Period("1D");
+    	Period timePeriod = new Period().withDays(1);
 
         Path paths = Paths.get(symbolPath);
         List<String> symbols = Files.readAllLines(paths, StandardCharsets.UTF_8);
