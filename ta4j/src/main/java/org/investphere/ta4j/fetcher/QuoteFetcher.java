@@ -21,6 +21,10 @@ public abstract class QuoteFetcher {
 
     abstract public List<Tick> parseQuotes(String quoteList, int interval, Period timePeriod);
 
+    public TimeSeries fetchAndParse(String symbol, int days, int interval) throws Exception {
+    	return fetchAndParse(symbol, days, interval, new Period().days(1));
+    }
+
     public TimeSeries fetchAndParse(String symbol, int days, int interval, Period timePeriod) throws Exception {
         String requestResult = fetchQuotes(symbol, days, interval, timePeriod);
         List<Tick> parsed = parseQuotes(requestResult, interval, timePeriod);

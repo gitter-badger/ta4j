@@ -8,8 +8,19 @@ import org.joda.time.Period;
 
 import eu.verdelhan.ta4j.Decimal;
 import eu.verdelhan.ta4j.Tick;
+import eu.verdelhan.ta4j.TimeSeries;
 
 public class GoogleQuoteFetcher extends QuoteFetcher {
+	
+    public TimeSeries fetchAndParseDaily(String symbol, int days) throws Exception {
+        return fetchAndParse(symbol, days, 60 * 60 * 24, new Period().withDays(1));
+    }
+
+
+	public String fetchQuotes(String symbol, int days, int interval) throws Exception {
+
+		return this.fetchQuotes(symbol, days, interval, new Period().days(1));
+	}
 
 	@Override
 	public String fetchQuotes(String symbol, int days, int interval, Period timePeriod) throws Exception {
@@ -20,6 +31,11 @@ public class GoogleQuoteFetcher extends QuoteFetcher {
 		return fetchURLasString(url);
 	}
 
+	
+	public List<Tick> parseQuotes(String quoteList, int interval) {
+		return parseQuotes(quoteList, interval, new Period().days(1));
+	}
+		
 	@Override
 	public List<Tick> parseQuotes(String quoteList, int interval, Period timePeriod) {
 		String[] lines = dropLines(quoteList, 6);
