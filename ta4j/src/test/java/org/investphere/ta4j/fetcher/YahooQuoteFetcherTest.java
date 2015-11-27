@@ -1,7 +1,8 @@
-package eu.verdelhan.ta4j.fetcher;
+package org.investphere.ta4j.fetcher;
+
+import static org.junit.Assert.assertNotNull;
 
 import org.investphere.ta4j.fetcher.YahooQuoteFetcher;
-import static org.junit.Assert.*;
 import org.junit.Test;
 
 import eu.verdelhan.ta4j.TimeSeries;
