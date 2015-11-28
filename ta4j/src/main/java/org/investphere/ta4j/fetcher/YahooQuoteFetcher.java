@@ -84,7 +84,8 @@ public class YahooQuoteFetcher extends QuoteFetcher {
                     Decimal.valueOf((parts[2])),
                     Decimal.valueOf((parts[3])),
                     Decimal.valueOf((parts[6])),
-                    Decimal.valueOf((parts[5])));
+                    Decimal.valueOf((parts[5])),
+                    "YH");
 
             quotes.add(quote);
         }

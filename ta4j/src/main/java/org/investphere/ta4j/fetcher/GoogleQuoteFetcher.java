@@ -69,7 +69,8 @@ public class GoogleQuoteFetcher extends QuoteFetcher {
                     Decimal.valueOf((parts[2])),
                     Decimal.valueOf((parts[3])),
                     Decimal.valueOf((parts[1])),
-                    Decimal.valueOf((parts[5])));
+                    Decimal.valueOf((parts[5])),
+                    "GO");
 
 
 			quotes.add(quote);
