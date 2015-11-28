@@ -44,14 +44,25 @@ public class HMAIndicator extends CachedIndicator<Decimal> {
 
     @Override
     protected Decimal calculate(int index) {
-    	return null; //calculateWMA(2*calculateWMA(index/2) - calculateWMA(index), Math.sqrt(index));
+        if (index == 0) {
+            return indicator.getValue(0);
+        }
+    	return calculateWMA(Decimal.valueOf(2).multipliedBy(calculateWMA(index/2)).minus(calculateWMA(index)), Math.sqrt(index));
     }
 
+    protected Decimal calculateWMA(Decimal value, double index) {
+    	return calculateWMA(value, (int)index);
+    }
+    
     protected Decimal calculateWMA(int index) {
         if (index == 0) {
             return indicator.getValue(0);
         }
         Decimal value = Decimal.ZERO;
+        return calculateWMA(value, index);
+    }
+    
+    protected Decimal calculateWMA(Decimal value, int index) {
         if(index - timeFrame < 0) {
             
             for(int i = index + 1; i > 0; i--) {
