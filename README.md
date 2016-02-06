@@ -1,5 +1,7 @@
 # ta4j [![Build Status](https://travis-ci.org/mdeverdelhan/ta4j.png?branch=master)](https://travis-ci.org/mdeverdelhan/ta4j)
 
+[![Join the chat at https://gitter.im/dalamar66/ta4j](https://badges.gitter.im/dalamar66/ta4j.svg)](https://gitter.im/dalamar66/ta4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ***Technical Analysis For Java***
 
 ![Ta4 main chart](https://raw.githubusercontent.com/wiki/mdeverdelhan/ta4j/img/ta4j_main_chart.png)
